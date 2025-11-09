@@ -3,37 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>แบบฟอร์มขออนุมัติ</title>
-<style>
-body { font-family: Segoe UI, sans-serif; margin: 40px; }
-input, textarea, select, button {
-  display: block; width: 100%; max-width: 500px;
-  margin-bottom: 10px; padding: 8px;
-}
-button { background-color: #0078D4; color: white; border: none; cursor: pointer; }
-button:hover { background-color: #005a9e; }
-</style>
 </head>
 <body>
 <h2>แบบฟอร์มขออนุมัติ</h2>
 <form id="approvalForm">
-  <label>หัวข้อเรื่อง</label>
-  <input type="text" name="title" required>
-  <label>รายละเอียด</label>
-  <textarea name="detail"></textarea>
+  <label>หัวข้อเรื่อง</label><br>
+  <input type="text" name="title" required><br><br>
+  <label>รายละเอียด</label><br>
+  <textarea name="detail"></textarea><br><br>
   <button type="submit">ส่งคำขอ</button>
 </form>
-
-<script>
-document.getElementById("approvalForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  await fetch("YOUR_FLOW_URL_HERE", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
-  alert("✅ ส่งข้อมูลเรียบร้อย!");
-});
-</script>
 </body>
 </html>
